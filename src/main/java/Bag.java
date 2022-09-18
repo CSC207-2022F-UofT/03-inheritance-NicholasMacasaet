@@ -5,6 +5,9 @@
  * 1. Introduction to Java helpful.
  */
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public abstract class Bag {
     /*
      * TODO: Create the following private instance variables
@@ -34,6 +37,8 @@ public abstract class Bag {
     public Bag(String colour, int capacity){
         this.color =colour;
         this.capacity = capacity;
+        this.numberOfContents = 0;
+        this.contents = new String[capacity];
     }
 
 
@@ -100,15 +105,15 @@ public abstract class Bag {
      *
      * If there are no items in this Bag, return null.
      *
-     * @return
+     * @return null if no items, return the item at the last index
      */
     public String popItem(){
-        if (this.numberOfContents== 0){
+        if (this.numberOfContents == 0){
             return null;
         }
         else {
-            this.numberOfContents = this.numberOfContents-1;
-            return contents[contents.length-1];
+            this.numberOfContents -=1;
+            return contents[numberOfContents];
         }
     }
 
