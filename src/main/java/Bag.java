@@ -121,7 +121,14 @@ public abstract class Bag {
         }
         else {
             this.numberOfContents -=1;
-           return contents[numberOfContents];
+            String popVal = "";
+            for (int j=0; j < this.contents.length; j++){
+                if (j == this.numberOfContents){
+                    popVal = this.contents[j];
+                    this.contents[j] = null;
+                }
+            }
+           return popVal;
         }
     }
 
